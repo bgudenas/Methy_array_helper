@@ -1,8 +1,6 @@
-
-
 #!/usr/bin/env Rscript
 
-## Library
+## Libraries
 suppressMessages(library(minfi))
 suppressMessages(library(conumee))
 
@@ -49,8 +47,8 @@ for ( i in file_paths){
   xyprobes = names(GRset@rowRanges)[dropvec]
   beta = beta[!( rownames(beta) %in% c( bad.probes, xyprobes) ), ]
   
-  outname = paste0( out_name, ".rds")
-  saveRDS(beta,  outname)
+  outname = paste0( out_name, ".txt")
+  write.table(beta, outname, quote=FALSE)
   }
 }  
 
