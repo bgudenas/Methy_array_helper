@@ -29,6 +29,7 @@ beta_mat = beta_mat[samp_keeps]
 beta_mat = beta_mat.transpose()
 beta_mat.shape
 
+## TODO summarize beta matrix to gene promoters using mean methylation
 
 y_string = metadata['Entity'].tolist()
 le = LabelEncoder()
@@ -66,3 +67,12 @@ bst = xgb.train(param, dtrain, num_round)
 bst.save_model('xgboost_model.json')
 
 ## Calculate Shapley values for feature importance
+import shap
+
+# Initialize the explainer
+explainer = shap.Explainer(bst)
+
+# Compute SHAP values 
+shap_values = explainer.shap_values(X_test)
+
+print(shap_values)
