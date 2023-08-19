@@ -64,3 +64,5 @@ bst = xgb.train(param, dtrain, num_round)
 
 # Save the model
 bst.save_model('xgboost_model.json')
+
+## Calculate Shapley values for feature importance
