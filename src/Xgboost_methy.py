@@ -30,6 +30,9 @@ beta_mat = beta_mat.transpose()
 beta_mat.shape
 
 ## TODO summarize beta matrix to gene promoters using mean methylation
+#url='https://webdata.illumina.com/downloads/productfiles/humanmethylation450/humanmethylation450_15017482_v1-2.csv'
+manifest = pd.read_csv("../Data/humanmethylation450_15017482_v1-2.csv", error_bad_lines=False))
+
 
 y_string = metadata['Entity'].tolist()
 le = LabelEncoder()
